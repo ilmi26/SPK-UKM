@@ -3,56 +3,82 @@ require 'db/database.php';
 ?>
 
 <div class="container">
-
     <div class="row">
-        <!--colomn kedua-->
-        <div class="col-sm-7 col-xs-10">
-            <div class="panel panel-default">
+        <div class="col-xs-12">
+           <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Rekomendasi UKM</h3>
+                    <h3 class="panel-title">Form Data Testing</h3>
                 </div>
                 <div class="panel-body">
-              
-                <form method="POST">
+             
+                <!--membuat form untuk tambah data-->
+                    <form class="form-horizontal" action="" method="post">
                         <div class="form-group">
-                           <div class="input-group" style="width: 70%;">
-                                <label class="col-md-12"><b>Jurusan :  </b></label>
-                                <?php
-                                  $db_object = new database();
-                                  $sql = "SELECT * FROM jurusan";
-                                  $query = $db_object->db_query($sql);
-                                ?>
-                                  <select name="jurusan" class="form-control selBox" required="required" id="jurusan" onchange=pilihProdi()>
-                                    <option value="" disabled selected>-- Pilih --</option>
-                                    <?php while ($data = $db_object->db_fetch_array($query)) { ?>
-                                    <option value="<?php echo $data['id_jurusan'];?>"><?php echo $data['nama_jurusan'];?></option><?php } ?>
-                                  </select>
-                                </div>
-                            <br>
-                           <div class="input-group" style="width: 70%;">
-                                <label class="col-md-12"><b>Prodi :  </b></label>
-                                  <select name="prodi" class="form-control selBox" required="required" id="prd">
-                                    <option value="" disabled selected>-- Pilih --</option>
-                                    <option value=""></option>
-                                  </select>
-                                </div>
-                            <br>
-                                <div class="input-group" style="width: 70%;">
-                                <label class="col-md-12"><b>Minat :  </b></label>
-                                <?php
-                                  $db_object = new database();
-                                  $sql = "SELECT * FROM minat";
-                                  $query = $db_object->db_query($sql);
-                                ?>
-                                  <select name="minat" class="form-control selBox" required="required" id="minat" onchange=pilihHobi()>
-                                    <option value="" disabled selected>-- Pilih --</option>
-                                    <?php while ($data = $db_object->db_fetch_array($query)) { ?>
-                                    <option value="<?php echo $data['id_minat'];?>"><?php echo $data['nama_minat'];?></option><?php } ?>
-                                  </select>
-                                </div>
-                            <br>
-                                <div class="input-group" style="width: 70%;">
-                                <label class="col-md-12"><b>Bakat :  </b></label>
+                            <label for="ruang_arsip" class="col-sm-3 control-label">Jurusan</label>
+                               <div class="col-sm-5 col-xs-9">
+                                <select name="jurusan" class="form-control selBox" required="required">
+                                    <p class="col-md-6"><option value="" disabled selected>-- Pilih --</option></p>
+                                    <p class="col-md-6"><option value="Administrasi Niaga">Administrasi Niaga</option></p>
+                                    <p class="col-md-6"><option value="Akuntansi">Akuntansi</option></p>
+                                    <p class="col-md-6"><option value="Teknik Elektro">Teknik Elektro</option></p>
+                                    <p class="col-md-6"><option value="Teknik Kimia">Teknik Kimia</option></p>
+                                    <p class="col-md-6"><option value="Teknik Mesin">Teknik Mesin</option></p>
+                                    <p class="col-md-6"><option value="Teknik Sipil">Teknik Sipil</option></p>
+                                </select> 
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="ruang_arsip" class="col-sm-3 control-label">Program Studi</label>
+                               <div class="col-sm-5 col-xs-9">
+                                <select name="prodi" class="form-control selBox" required="required">
+                                    <p class="col-md-6"><option value="" disabled selected>-- Pilih --</option></p>
+                                    <p class="col-md-6"><option value="Administrasi Bisnis">Administrasi Bisnis</option></p>
+                                    <p class="col-md-6"><option value="Akuntansi">Akuntansi</option></p>
+                                    <p class="col-md-6"><option value="Analisis Kimia">Analisis Kimia</option></p>
+                                    <p class="col-md-6"><option value="Teknik Elektronika">Teknik Elektronika</option></p>
+                                    <p class="col-md-6"><option value="Teknik Kimia">Teknik Kimia</option></p>
+                                    <p class="col-md-6"><option value="Teknik Kimia Mineral">Teknik Kimia Mineral</option></p>
+                                    <p class="col-md-6"><option value="Teknik Konstruksi">Teknik Konstruksi</option></p>
+                                    <p class="col-md-6"><option value="Teknik Konstruksi Gedung">Teknik Konstruksi Gedung</option></p>
+                                    <p class="col-md-6"><option value="Teknik Konstruksi Jalan dan Jembatan">Teknik Konstruksi Jalan dan Jembatan</option></p>
+                                    <p class="col-md-6"><option value="Teknik Konversi Energi">Teknik Konversi Energi</option></p>
+                                    <p class="col-md-6"><option value="Teknik Listrik">Teknik Listrik</option></p>
+                                    <p class="col-md-6"><option value="Teknik Mekatronika">Teknik Mekatronika</option></p>
+                                    <p class="col-md-6"><option value="Teknik Mesin">Teknik Mesin</option></p>
+                                    <p class="col-md-6"><option value="Teknik Otomotif">Teknik Otomotif</option></p>
+                                    <p class="col-md-6"><option value="Teknik Perawatan Alat Berat">Teknik Perawatan Alat Berat</option></p>
+                                    <p class="col-md-6"><option value="Teknik Sipil">Teknik Sipil</option></p>
+                                    <p class="col-md-6"><option value="Teknik Telekomunikasi">Teknik Telekomunikasi</option></p>
+                                    <p class="col-md-6"><option value="Akuntansi Manajerial">Akuntansi Manajerial</option></p>
+                                    <p class="col-md-6"><option value="Teknik Komputer dan Jaringan">Teknik Komputer dan Jaringan</option></p>
+                                    <p class="col-md-6"><option value="Teknik Manufaktur">Teknik Manufaktur</option></p>
+                                    <p class="col-md-6"><option value="Teknik Multimedia dan Jaringan">Teknik Multimedia dan Jaringan</option></p>
+                                    <p class="col-md-6"><option value="Teknik Pembangkit Energi">Teknik Pembangkit Energi</option></p>
+                                    <p class="col-md-6"><option value="Teknologi Kimia Industri">Teknologi Kimia Industri</option></p>
+                                </select> 
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="ruang_arsip" class="col-sm-3 control-label">Minat</label>
+                               <div class="col-sm-5 col-xs-9">
+                                <select name="minat" class="form-control selBox" required="required">
+                                    <p class="col-md-6"><option value="" disabled selected>-- Pilih --</option></p>
+                                    <p class="col-md-6"><option value="Seni">Seni</option></p>
+                                    <p class="col-md-6"><option value="Olahraga">Olahraga</option></p>
+                                    <p class="col-md-6"><option value="Pecinta Alam">Pecinta Alam</option></p>
+                                    <p class="col-md-6"><option value="Bela Diri">Bela Diri</option></p>
+                                    <p class="col-md-6"><option value="Jurnalistik">Jurnalistik</option></p>
+                                    <p class="col-md-6"><option value="Kesehatan">Kesehatan</option></p>
+                                    <p class="col-md-6"><option value="Wirausaha">Wirausaha</option></p>
+                                    <p class="col-md-6"><option value="Bahasa">Bahasa</option></p>
+                                    <p class="col-md-6"><option value="Kemanusiaan">Kemanusiaan</option></p>
+                                    <p class="col-md-6"><option value="Pramuka">Pramuka</option></p>
+                                </select> 
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="ruang_arsip" class="col-sm-3 control-label">Bakat</label>
+                               <div class="col-sm-5 col-xs-9">
                                 <select name="bakat" class="form-control selBox" required="required">
                                     <p class="col-md-6"><option value="" disabled selected>-- Pilih --</option></p>
                                     <p class="col-md-6"><option value="Seni">Seni</option></p>
@@ -60,102 +86,88 @@ require 'db/database.php';
                                     <p class="col-md-6"><option value="Olahraga">Olahraga</option></p>
                                     <p class="col-md-6"><option value="Lainnya">Lainnya</option></p>
                                 </select> 
-                                </div>
-                                <br>
-                                <div class="input-group" style="width: 70%;">
-                                <label class="col-md-12"><b>Hobi :  </b></label>
-                                  <select name="hobi" class="form-control selBox" required="required" id="hobi">
-                                    <option value="" disabled selected>-- Pilih --</option>
-                                    <option value=""></option>
-                                  </select>
-                                <br>
-                                    <button type="submit" name="submit" class="btn btn-primary" data-toggle="modal" data-target="#modalForm">Cek Rekomendasi</button>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="ruang_arsip" class="col-sm-3 control-label">Hobi</label>
+                               <div class="col-sm-5 col-xs-9">
+                                <select name="hobi" class="form-control selBox" required="required">
+                                    <p class="col-md-6"><option value="" />-- Pilih --</p>
+                                    <p class="col-md-6"><option value="Menari" /> Menari</p>
+                                    <p class="col-md-6"><option value="Menyanyi" /> Menyanyi</p>
+                                    <p class="col-md-6"><option value="Menulis" /> Menulis</p>
+                                    <p class="col-md-6"><option value="Menggambar" /> Menggambar</p>
+                                    <p class="col-md-6"><option value="Memasak" /> Memasak</p>
+                                    <p class="col-md-6"><option value="Fotografi" /> Fotografi</p>
+                                    <p class="col-md-6"><option value="Sepak Bola" /> Sepak Bola</p>
+                                    <p class="col-md-6"><option value="Bulu Tangkis" /> Bulu Tangkis</p>
+                                    <p class="col-md-6"><option value="Basket" /> Basket</p>
+                                    <p class="col-md-6"><option value="Futsal" /> Futsal</p>
+                                    <p class="col-md-6"><option value="Volly" /> Volly</p>
+                                    <p class="col-md-6"><option value="Belajar Matematika" /> Belajar Matematika</p>
+                                    <p class="col-md-6"><option value="Olahraga" /> Olahraga</p>
+                                    <p class="col-md-6"><option value="Membaca" /> Membaca</p>
+                                    <p class="col-md-6"><option value="Bermain Musik" /> Bermain Musik</p>
+                                    <p class="col-md-6"><option value="Mendengar Musik" /> Mendengar Musik</p>
+                                    <p class="col-md-6"><option value="Nonton" /> Nonton</p>
+                                    <p class="col-md-6"><option value="Main Game" /> Main Game</p>
+                                    <p class="col-md-6"><option value="Jalan-Jalan" /> Jalan-Jalan</p>
+                                    <p class="col-md-6"><option value="Belajar bahasa asing baru" /> Belajar bahasa asing baru</p>
+                                    <p class="col-md-6"><option value="Melukis" /> Melukis</p>
+                                    <p class="col-md-6"><option value="Berenang" /> Berenang</p>
+                                    <p class="col-md-6"><option value="Naik Gunung" /> Naik Gunung</p>
+                                    <p class="col-md-6"><option value="Travelling" /> Travelling</p>
+                                    <p class="col-md-6"><option value="Desain grafis" /> Desain grafis</p>
+                                </select>
+                            </div>
 
+                        </div>
+                        <div class="form-group">
+                            <label for="label" class="col-sm-3 control-label">Kelas Asli</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="label" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-4">
+                                <button type="submit" name="submit" class="btn btn-success">
+                                    <span class="fa fa-save"></span> Simpan Data</button>
+                            </div>
                         </div>
                     </form>
 
+
                 </div>
-               
-            </div>
-            </div>
-        </div>
-
-        <div class="col-sm-5 col-xs-12">
-                
-                    <?php if(isset($_GET['error']) ) {?>
-            <div class="alert alert-danger">Maaf! Login Gagal, Coba Lagi..</div>
-            <?php }?>
-
-            <?php if (isset($_SESSION['username'])) { ?>
-            <div class="alert alert-info">
-                <strong>Welcome <?=$_SESSION['nama']?></strong>
-            </div>
-            <?php
-           } else { ?>
-
-          <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Masuk Ke Sistem</h3>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" action="proses_login.php" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <input type="text" name="user" class="form-control input-sm"
-                                   placeholder="Username" required="" autocomplete="off"/>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <input type="password" name="pwd" class="form-control input-sm"
-                                   placeholder="Password" required="" autocomplete="off"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <button type="submit" name="login" value="login"
-                                        class="btn btn-primary btn-block"><span class="fa fa-unlock-alt"></span>
-                                    Login Sistem
-                                </button>
-                            </div>
-                    </form>
+                <div class="panel-footer">
+                    <a href="?page=testing&actions=tampil" class="btn btn-primary btn-sm">
+                        Kembali
+                    </a>
                 </div>
             </div>
-                
-    </div>
-</div>
-
-      </div>
-    </div>
-
-    </div>
 
         </div>
     </div>
 </div>
-
-
-<?php } ?>
-
- <?php
+<?php
 $db_object = new database();
  if(isset($_POST['submit'])){
-    
+  echo '<marquee scrolldelay="100" style="font-family:arial; font-size:20px; color:#000000;" bgcolor="CFD8DC"><b>Hasil Perhitungan Klasifikasi</marquee> ';
 
- echo '
- <marquee scrolldelay="100" style="font-family:arial; font-size:20px; color:#000000;" bgcolor="CFD8DC"><b>Hasil Rekomendasi UKM</marquee>
- <table align="left" style="background-color:#FAFAFA;">
+
+echo '<table align="left" style="background-color:#FAFAFA;">
   <tr>
   </tr>
     <tr>
-      <td style="color:#000000;">'; 
+      <td style="color:#000000;">';
 
  $jurusan = $_POST['jurusan'];
  $prodi = $_POST['prodi'];
  $minat = $_POST['minat'];
  $bakat = $_POST['bakat'];
  $hobi = $_POST['hobi'];
+ $label = $_POST['label'];
+
 // // label
  
  $total1 = "SELECT sum(total) as jumlah FROM (SELECT COUNT(id) AS total from tb_data_training) t";
@@ -606,7 +618,7 @@ $db_object = new database();
  while ($row = $db_object->db_fetch_array($queryTK1Wirausaha)) {
  $dataTK1Wirausaha = $row['total'];} 
 
-  // PRODI TEKNIK KIMIA MINERAL
+// PRODI TEKNIK KIMIA MINERAL
 
  $sqlTKMBahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && prodi='Teknik Kimia Mineral'";
  $queryTKMBahasa = $db_object->db_query($sqlTKMBahasa);
@@ -1642,43 +1654,6 @@ $db_object = new database();
  while ($row = $db_object->db_fetch_array($queryWWirausaha)) {
  $dataWWirausaha = $row['total'];}
 
- // BAKAT SENI
-
- $sqlS2Bahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && bakat='Seni'";
- $queryS2Bahasa = $db_object->db_query($sqlS2Bahasa);
- while ($row = $db_object->db_fetch_array($queryS2Bahasa)) {
- $dataS2Bahasa = $row['total'];}
-
- $sqlS2Kemanusiaan = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Kemanusiaan (ksr, humaniora)' && bakat='Seni'";
- $queryS2Kemanusiaan = $db_object->db_query($sqlS2Kemanusiaan);
- while ($row = $db_object->db_fetch_array($queryS2Kemanusiaan)) {
- $dataS2Kemanusiaan = $row['total'];}
-
- $sqlS2Mapala = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pecinta Alam (MAPALA)' && bakat ='Seni'";
- $queryS2Mapala = $db_object->db_query($sqlS2Mapala);
- while ($row = $db_object->db_fetch_array($queryS2Mapala)) {
- $dataS2Mapala = $row['total'];}
-
- $sqlS2Persma = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Persma' && bakat='Seni'";
- $queryS2Persma = $db_object->db_query($sqlS2Persma);
- while ($row = $db_object->db_fetch_array($queryS2Persma)) {
- $dataS2Persma = $row['total'];}
-
- $sqlS2Pramuka = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pramuka' && bakat='Seni'";
- $queryS2Pramuka = $db_object->db_query($sqlS2Pramuka);
- while ($row = $db_object->db_fetch_array($queryS2Pramuka)) {
- $dataS2Pramuka = $row['total'];}
-
- $sqlS2Senior = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='SENIOR (senior, bola, karate, taekwondo)' && bakat='Seni'";
- $queryS2Senior = $db_object->db_query($sqlS2Senior);
- while ($row = $db_object->db_fetch_array($queryS2Senior)) {
- $dataS2Senior = $row['total'];}
-
- $sqlS2Wirausaha = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Wirausaha' && bakat='Seni'";
- $queryS2Wirausaha = $db_object->db_query($sqlS2Wirausaha);
- while ($row = $db_object->db_fetch_array($queryS2Wirausaha)) {
- $dataS2Wirausaha = $row['total'];}
-
  // BAKAT BAHASA
 
  $sqlB2Bahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && bakat='Bahasa'";
@@ -1715,6 +1690,43 @@ $db_object = new database();
  $queryB2Wirausaha = $db_object->db_query($sqlB2Wirausaha);
  while ($row = $db_object->db_fetch_array($queryB2Wirausaha)) {
  $dataB2Wirausaha = $row['total'];}
+
+ // BAKAT LAINNYA
+
+ $sqlLBahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && bakat='Lainnya'";
+ $queryLBahasa = $db_object->db_query($sqlLBahasa);
+ while ($row = $db_object->db_fetch_array($queryLBahasa)) {
+ $dataLBahasa = $row['total'];}
+
+ $sqlLKemanusiaan = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Kemanusiaan (ksr, humaniora)' && bakat='Lainnya'";
+ $queryLKemanusiaan = $db_object->db_query($sqlLKemanusiaan);
+ while ($row = $db_object->db_fetch_array($queryLKemanusiaan)) {
+ $dataLKemanusiaan = $row['total'];}
+
+ $sqlLMapala = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pecinta Alam (MAPALA)' && bakat ='Lainnya'";
+ $queryLMapala = $db_object->db_query($sqlLMapala);
+ while ($row = $db_object->db_fetch_array($queryLMapala)) {
+ $dataLMapala = $row['total'];}
+
+ $sqlLPersma = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Persma' && bakat='Lainnya'";
+ $queryLPersma = $db_object->db_query($sqlLPersma);
+ while ($row = $db_object->db_fetch_array($queryLPersma)) {
+ $dataLPersma = $row['total'];}
+
+ $sqlLPramuka = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pramuka' && bakat='Lainnya'";
+ $queryLPramuka = $db_object->db_query($sqlLPramuka);
+ while ($row = $db_object->db_fetch_array($queryLPramuka)) {
+ $dataLPramuka = $row['total'];}
+
+ $sqlLSenior = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='SENIOR (senior, bola, karate, taekwondo)' && bakat='Lainnya'";
+ $queryLSenior = $db_object->db_query($sqlLSenior);
+ while ($row = $db_object->db_fetch_array($queryLSenior)) {
+ $dataLSenior = $row['total'];}
+
+ $sqlLWirausaha = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Wirausaha' && bakat='Lainnya'";
+ $queryLWirausaha = $db_object->db_query($sqlLWirausaha);
+ while ($row = $db_object->db_fetch_array($queryLWirausaha)) {
+ $dataLWirausaha = $row['total'];}
 
  // BAKAT OLAHRAGA
 
@@ -1753,42 +1765,42 @@ $db_object = new database();
  while ($row = $db_object->db_fetch_array($queryO2Wirausaha)) {
  $dataO2Wirausaha = $row['total'];}
 
- // BAKAT LAINNYA
+ // BAKAT SENI
 
- $sqlLBahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && bakat='Lainnya'";
- $queryLBahasa = $db_object->db_query($sqlLBahasa);
- while ($row = $db_object->db_fetch_array($queryLBahasa)) {
- $dataLBahasa = $row['total'];}
+ $sqlS2Bahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && bakat='Seni'";
+ $queryS2Bahasa = $db_object->db_query($sqlS2Bahasa);
+ while ($row = $db_object->db_fetch_array($queryS2Bahasa)) {
+ $dataS2Bahasa = $row['total'];}
 
- $sqlLKemanusiaan = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Kemanusiaan (ksr, humaniora)' && bakat='Lainnya'";
- $queryLKemanusiaan = $db_object->db_query($sqlLKemanusiaan);
- while ($row = $db_object->db_fetch_array($queryLKemanusiaan)) {
- $dataLKemanusiaan = $row['total'];}
+ $sqlS2Kemanusiaan = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Kemanusiaan (ksr, humaniora)' && bakat='Seni'";
+ $queryS2Kemanusiaan = $db_object->db_query($sqlS2Kemanusiaan);
+ while ($row = $db_object->db_fetch_array($queryS2Kemanusiaan)) {
+ $dataS2Kemanusiaan = $row['total'];}
 
- $sqlLMapala = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pecinta Alam (MAPALA)' && bakat ='Lainnya'";
- $queryLMapala = $db_object->db_query($sqlLMapala);
- while ($row = $db_object->db_fetch_array($queryLMapala)) {
- $dataLMapala = $row['total'];}
+ $sqlS2Mapala = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pecinta Alam (MAPALA)' && bakat ='Seni'";
+ $queryS2Mapala = $db_object->db_query($sqlS2Mapala);
+ while ($row = $db_object->db_fetch_array($queryS2Mapala)) {
+ $dataS2Mapala = $row['total'];}
 
- $sqlLPersma = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Persma' && bakat='Lainnya'";
- $queryLPersma = $db_object->db_query($sqlLPersma);
- while ($row = $db_object->db_fetch_array($queryLPersma)) {
- $dataLPersma = $row['total'];}
+ $sqlS2Persma = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Persma' && bakat='Seni'";
+ $queryS2Persma = $db_object->db_query($sqlS2Persma);
+ while ($row = $db_object->db_fetch_array($queryS2Persma)) {
+ $dataS2Persma = $row['total'];}
 
- $sqlLPramuka = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pramuka' && bakat='Lainnya'";
- $queryLPramuka = $db_object->db_query($sqlLPramuka);
- while ($row = $db_object->db_fetch_array($queryLPramuka)) {
- $dataLPramuka = $row['total'];}
+ $sqlS2Pramuka = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pramuka' && bakat='Seni'";
+ $queryS2Pramuka = $db_object->db_query($sqlS2Pramuka);
+ while ($row = $db_object->db_fetch_array($queryS2Pramuka)) {
+ $dataS2Pramuka = $row['total'];}
 
- $sqlLSenior = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='SENIOR (senior, bola, karate, taekwondo)' && bakat='Lainnya'";
- $queryLSenior = $db_object->db_query($sqlLSenior);
- while ($row = $db_object->db_fetch_array($queryLSenior)) {
- $dataLSenior = $row['total'];}
+ $sqlS2Senior = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='SENIOR (senior, bola, karate, taekwondo)' && bakat='Seni'";
+ $queryS2Senior = $db_object->db_query($sqlS2Senior);
+ while ($row = $db_object->db_fetch_array($queryS2Senior)) {
+ $dataS2Senior = $row['total'];}
 
- $sqlLWirausaha = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Wirausaha' && bakat='Lainnya'";
- $queryLWirausaha = $db_object->db_query($sqlLWirausaha);
- while ($row = $db_object->db_fetch_array($queryLWirausaha)) {
- $dataLWirausaha = $row['total'];}
+ $sqlS2Wirausaha = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Wirausaha' && bakat='Seni'";
+ $queryS2Wirausaha = $db_object->db_query($sqlS2Wirausaha);
+ while ($row = $db_object->db_fetch_array($queryS2Wirausaha)) {
+ $dataS2Wirausaha = $row['total'];}
 
  // HOBI MENARI
 
@@ -2125,37 +2137,37 @@ $db_object = new database();
 
  // HOBI FUTSAL
 
- $sqlFSBahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && hobi='Futsal'";
+ $sqlFSBahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && hobi='Basket'";
  $queryFSBahasa = $db_object->db_query($sqlFSBahasa);
  while ($row = $db_object->db_fetch_array($queryFSBahasa)) {
  $dataFSBahasa = $row['total'];}
 
- $sqlFSKemanusiaan = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Kemanusiaan (ksr, humaniora)' && hobi='Futsal'";
+ $sqlFSKemanusiaan = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Kemanusiaan (ksr, humaniora)' && hobi='Basket'";
  $queryFSKemanusiaan = $db_object->db_query($sqlFSKemanusiaan);
  while ($row = $db_object->db_fetch_array($queryFSKemanusiaan)) {
  $dataFSKemanusiaan = $row['total'];}
 
- $sqlFSMapala = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pecinta Alam (MAPALA)' && hobi ='Futsal'";
+ $sqlFSMapala = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pecinta Alam (MAPALA)' && hobi ='Basket'";
  $queryFSMapala = $db_object->db_query($sqlFSMapala);
  while ($row = $db_object->db_fetch_array($queryFSMapala)) {
  $dataFSMapala = $row['total'];}
 
- $sqlFSPersma = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Persma' && hobi='Futsal'";
+ $sqlFSPersma = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Persma' && hobi='Basket'";
  $queryFSPersma = $db_object->db_query($sqlFSPersma);
  while ($row = $db_object->db_fetch_array($queryFSPersma)) {
  $dataFSPersma = $row['total'];}
 
- $sqlFSPramuka = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pramuka' && hobi='Futsal'";
+ $sqlFSPramuka = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Pramuka' && hobi='Basket'";
  $queryFSPramuka = $db_object->db_query($sqlFSPramuka);
  while ($row = $db_object->db_fetch_array($queryFSPramuka)) {
  $dataFSPramuka = $row['total'];}
 
- $sqlFSSenior = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='SENIOR (senior, bola, karate, taekwondo)' && hobi='Futsal'";
+ $sqlFSSenior = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='SENIOR (senior, bola, karate, taekwondo)' && hobi='Basket'";
  $queryFSSenior = $db_object->db_query($sqlFSSenior);
  while ($row = $db_object->db_fetch_array($queryFSSenior)) {
  $dataFSSenior = $row['total'];}
 
- $sqlFSWirausaha = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Wirausaha' && hobi='Futsal'";
+ $sqlFSWirausaha = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Wirausaha' && hobi='Basket'";
  $queryFSWirausaha = $db_object->db_query($sqlFSWirausaha);
  while ($row = $db_object->db_fetch_array($queryFSWirausaha)) {
  $dataFSWirausaha = $row['total'];}
@@ -2272,7 +2284,6 @@ $db_object = new database();
  $dataO3Wirausaha = $row['total'];}
 
  // HOBI MEMBACA
-
  $sqlMBCBahasa = "SELECT label, count(id) AS total FROM tb_data_training WHERE label='Bahasa' && hobi='Membaca'";
  $queryMBCBahasa = $db_object->db_query($sqlMBCBahasa);
  while ($row = $db_object->db_fetch_array($queryMBCBahasa)) {
@@ -2960,30 +2971,13 @@ $db_object = new database();
   $tkiw = $dataTKIWirausaha/$dataWirausaha;
 
   #===========Minat================
-
-  $sb = $dataSBahasa/$dataBahasa;
-  $sk = $dataSKemanusiaan/$dataKemanusiaan;
-  $sm = $dataSMapala/$dataMapala;
-  $sp = $dataSPersma/$dataPersma;
-  $spr = $dataSPramuka/$dataPramuka;
-  $ss = $dataSSenior/$dataSenior;
-  $sw = $dataSWirausaha/$dataWirausaha;
-
-  $ob = $dataOBahasa/$dataBahasa;
-  $ok = $dataOKemanusiaan/$dataKemanusiaan;
-  $om = $dataOMapala/$dataMapala;
-  $op = $dataOPersma/$dataPersma;
-  $opr = $dataOPramuka/$dataPramuka;
-  $os = $dataOSenior/$dataSenior;
-  $ow = $dataOWirausaha/$dataWirausaha;
-
-  $pab = $dataPABahasa/$dataBahasa;
-  $pak = $dataPAKemanusiaan/$dataKemanusiaan;
-  $pam = $dataPAMapala/$dataMapala;
-  $pap = $dataPAPersma/$dataPersma;
-  $papr = $dataPAPramuka/$dataPramuka;
-  $pas = $dataPASenior/$dataSenior;
-  $paw = $dataPAWirausaha/$dataWirausaha;
+  $bb = $dataBBahasa/$dataBahasa;
+  $bk = $dataBKemanusiaan/$dataKemanusiaan;
+  $bm = $dataBMapala/$dataMapala;
+  $bp = $dataBPersma/$dataPersma;
+  $bpr = $dataBPramuka/$dataPramuka;
+  $bs = $dataBSenior/$dataSenior;
+  $bw = $dataBWirausaha/$dataWirausaha;
 
   $bdb = $dataBDBahasa/$dataBahasa;
   $bdk = $dataBDKemanusiaan/$dataKemanusiaan;
@@ -3001,29 +2995,37 @@ $db_object = new database();
   $js = $dataJSenior/$dataSenior;
   $jw = $dataJWirausaha/$dataWirausaha;
 
-  $sob = $dataKMBahasa/$dataBahasa;
-  $sok = $dataKMKemanusiaan/$dataKemanusiaan;
-  $som = $dataKMMapala/$dataMapala;
-  $sop = $dataKMPersma/$dataPersma;
-  $sopr = $dataKMPramuka/$dataPramuka;
-  $sos = $dataKMSenior/$dataSenior;
-  $sow = $dataKMWirausaha/$dataWirausaha;
+  $kmb = $dataKMBahasa/$dataBahasa;
+  $kmk = $dataKMKemanusiaan/$dataKemanusiaan;
+  $kmm = $dataKMMapala/$dataMapala;
+  $kmp = $dataKMPersma/$dataPersma;
+  $kmpr = $dataKMPramuka/$dataPramuka;
+  $kms = $dataKMSenior/$dataSenior;
+  $kmw = $dataKMWirausaha/$dataWirausaha;
 
-  $wb = $dataWBahasa/$dataBahasa;
-  $wk = $dataWKemanusiaan/$dataKemanusiaan;
-  $wm = $dataWMapala/$dataMapala;
-  $wp = $dataWPersma/$dataPersma;
-  $wpr = $dataWPramuka/$dataPramuka;
-  $ws = $dataWSenior/$dataSenior;
-  $ww = $dataWWirausaha/$dataWirausaha;
+  $ksb = $dataKSBahasa/$dataBahasa;
+  $ksk = $dataKSKemanusiaan/$dataKemanusiaan;
+  $ksm = $dataKSMapala/$dataMapala;
+  $ksp = $dataKSPersma/$dataPersma;
+  $kspr = $dataKSPramuka/$dataPramuka;
+  $kss = $dataKSSenior/$dataSenior;
+  $ksw = $dataKSWirausaha/$dataWirausaha;
 
-  $bb = $dataBBahasa/$dataBahasa;
-  $bk = $dataBKemanusiaan/$dataKemanusiaan;
-  $bm = $dataBMapala/$dataMapala;
-  $bp = $dataBPersma/$dataPersma;
-  $bpr = $dataBPramuka/$dataPramuka;
-  $bs = $dataBSenior/$dataSenior;
-  $bw = $dataBWirausaha/$dataWirausaha;
+  $ob = $dataOBahasa/$dataBahasa;
+  $ok = $dataOKemanusiaan/$dataKemanusiaan;
+  $om = $dataOMapala/$dataMapala;
+  $op = $dataOPersma/$dataPersma;
+  $opr = $dataOPramuka/$dataPramuka;
+  $os = $dataOSenior/$dataSenior;
+  $ow = $dataOWirausaha/$dataWirausaha;
+
+  $pab = $dataPABahasa/$dataBahasa;
+  $pak = $dataPAKemanusiaan/$dataKemanusiaan;
+  $pam = $dataPAMapala/$dataMapala;
+  $pap = $dataPAPersma/$dataPersma;
+  $papr = $dataPAPramuka/$dataPramuka;
+  $pas = $dataPASenior/$dataSenior;
+  $paw = $dataPAWirausaha/$dataWirausaha;
 
   $pb = $dataPBahasa/$dataBahasa;
   $pk = $dataPKemanusiaan/$dataKemanusiaan;
@@ -3033,15 +3035,23 @@ $db_object = new database();
   $ps = $dataPSenior/$dataSenior;
   $pw = $dataPWirausaha/$dataWirausaha;
 
-  #===========Bakat================
-  $s2b = $dataS2Bahasa/$dataBahasa;
-  $s2k = $dataS2Kemanusiaan/$dataKemanusiaan;
-  $s2m = $dataS2Mapala/$dataMapala;
-  $s2p = $dataS2Persma/$dataPersma;
-  $s2pr = $dataS2Pramuka/$dataPramuka;
-  $s2s = $dataS2Senior/$dataSenior;
-  $s2w = $dataS2Wirausaha/$dataWirausaha;
+  $sb = $dataSBahasa/$dataBahasa;
+  $sk = $dataSKemanusiaan/$dataKemanusiaan;
+  $sm = $dataSMapala/$dataMapala;
+  $sp = $dataSPersma/$dataPersma;
+  $spr = $dataSPramuka/$dataPramuka;
+  $ss = $dataSSenior/$dataSenior;
+  $sw = $dataSWirausaha/$dataWirausaha;
 
+  $wb = $dataWBahasa/$dataBahasa;
+  $wk = $dataWKemanusiaan/$dataKemanusiaan;
+  $wm = $dataWMapala/$dataMapala;
+  $wp = $dataWPersma/$dataPersma;
+  $wpr = $dataWPramuka/$dataPramuka;
+  $ws = $dataWSenior/$dataSenior;
+  $ww = $dataWWirausaha/$dataWirausaha;
+
+  #===========Bakat================
   $b2b = $dataB2Bahasa/$dataBahasa;
   $b2k = $dataB2Kemanusiaan/$dataKemanusiaan;
   $b2m = $dataB2Mapala/$dataMapala;
@@ -3049,6 +3059,14 @@ $db_object = new database();
   $b2pr = $dataB2Pramuka/$dataPramuka;
   $b2s = $dataB2Senior/$dataSenior;
   $b2w = $dataB2Wirausaha/$dataWirausaha;
+
+  $lb = $dataLBahasa/$dataBahasa;
+  $lk = $dataLKemanusiaan/$dataKemanusiaan;
+  $lm = $dataLMapala/$dataMapala;
+  $lp = $dataLPersma/$dataPersma;
+  $lpr = $dataLPramuka/$dataPramuka;
+  $ls = $dataLSenior/$dataSenior;
+  $lw = $dataLWirausaha/$dataWirausaha;
 
   $o2b = $dataO2Bahasa/$dataBahasa;
   $o2k = $dataO2Kemanusiaan/$dataKemanusiaan;
@@ -3058,13 +3076,13 @@ $db_object = new database();
   $o2s = $dataO2Senior/$dataSenior;
   $o2w = $dataO2Wirausaha/$dataWirausaha;
 
-  $lb = $dataLBahasa/$dataBahasa;
-  $lk = $dataLKemanusiaan/$dataKemanusiaan;
-  $lm = $dataLMapala/$dataMapala;
-  $lp = $dataLPersma/$dataPersma;
-  $lpr = $dataLPramuka/$dataPramuka;
-  $ls = $dataLSenior/$dataSenior;
-  $lw = $dataLWirausaha/$dataWirausaha;
+  $s2b = $dataS2Bahasa/$dataBahasa;
+  $s2k = $dataS2Kemanusiaan/$dataKemanusiaan;
+  $s2m = $dataS2Mapala/$dataMapala;
+  $s2p = $dataS2Persma/$dataPersma;
+  $s2pr = $dataS2Pramuka/$dataPramuka;
+  $s2s = $dataS2Senior/$dataSenior;
+  $s2w = $dataS2Wirausaha/$dataWirausaha;
 
   #===========Hobi================
   $mnb = $dataMNBahasa/$dataBahasa;
@@ -3267,8 +3285,10 @@ $db_object = new database();
   $dgs = $dataDGSenior/$dataSenior;
   $dgw = $dataDGWirausaha/$dataWirausaha;
 
+
+
   #===============================
-if ($jurusan == '1'){
+if ($jurusan == 'Administrasi Niaga'){
   $temp1 = $jurusan;
   $bahasa1 = $anb;
   $kemanusiaan1 = $ank;
@@ -3279,18 +3299,18 @@ if ($jurusan == '1'){
   $wirausaha1 = $anw;
 }
 
-if ($jurusan == '2'){
+if ($jurusan == 'Akuntansi'){
   $temp1 = $jurusan;
-  $bahasa1 = $akb;
-  $kemanusiaan1 = $akk;
-  $mapala1 = $akm;
-  $persma1 = $akp;
-  $pramuka1 = $akpr;
-  $senior1 = $aks;
-  $wirausaha1 = $akw;
+  $bahasa1 = $ak1b;
+  $kemanusiaan1 = $ak1k;
+  $mapala1 = $ak1m;
+  $persma1 = $ak1p;
+  $pramuka1 = $ak1pr;
+  $senior1 = $ak1s;
+  $wirausaha1 = $ak1w;
 }
 
-if ($jurusan == '3'){
+if ($jurusan == 'Teknik Elektro'){
   $temp1 = $jurusan;
   $bahasa1 = $teb;
   $kemanusiaan1 = $tek;
@@ -3301,7 +3321,7 @@ if ($jurusan == '3'){
   $wirausaha1 = $tew;
 }
 
-if ($jurusan == '4'){
+if ($jurusan == 'Teknik Kimia'){
   $temp1 = $jurusan;
   $bahasa1 = $tkb;
   $kemanusiaan1 = $tkk;
@@ -3312,7 +3332,7 @@ if ($jurusan == '4'){
   $wirausaha1 = $tkw;
 }
 
-if ($jurusan == '5'){
+if ($jurusan == 'Teknik Mesin'){
   $temp1 = $jurusan;
   $bahasa1 = $tmb;
   $kemanusiaan1 = $tmk;
@@ -3323,7 +3343,7 @@ if ($jurusan == '5'){
   $wirausaha1 = $tmw;
 }
 
-if ($jurusan == '6'){
+if ($jurusan == 'Teknik Sipil'){
   $temp1 = $jurusan;
   $bahasa1 = $tsb;
   $kemanusiaan1 = $tsk;
@@ -3381,13 +3401,13 @@ if ($prodi == 'Teknik Elektronika'){
 
 if ($prodi == 'Teknik Kimia'){
   $temp2 = $prodi;
-  $bahasa2 = $tk1b;
-  $kemanusiaan2 = $tk1k;
-  $mapala2 = $tk1m;
-  $persma2 = $tk1p;
-  $pramuka2 = $tk1pr;
-  $senior2 = $tk1s;
-  $wirausaha2 = $tk1w;
+  $bahasa2 = $tkb;
+  $kemanusiaan2 = $tkk;
+  $mapala2 = $tkm;
+  $persma2 = $tkp;
+  $pramuka2 = $tkpr;
+  $senior2 = $tks;
+  $wirausaha2 = $tkw;
 }
 
 if ($prodi == 'Teknik Kimia Mineral'){
@@ -3469,13 +3489,13 @@ if ($prodi == 'Teknik Mekatronika'){
 
 if ($prodi == 'Teknik Mesin'){
   $temp2 = $prodi;
-  $bahasa2 = $tm1b;
-  $kemanusiaan2 = $tm1k;
-  $mapala2 = $tm1m;
-  $persma2 = $tm1p;
-  $pramuka2 = $tm1pr;
-  $senior2 = $tm1s;
-  $wirausaha2 = $tm1w;
+  $bahasa2 = $tmb;
+  $kemanusiaan2 = $tmk;
+  $mapala2 = $tmm;
+  $persma2 = $tmp;
+  $pramuka2 = $tmpr;
+  $senior2 = $tms;
+  $wirausaha2 = $tmw;
 }
 
 if ($prodi == 'Teknik Otomotif'){
@@ -3589,84 +3609,7 @@ if ($prodi == 'Teknologi Kimia Industri'){
 }
 
   #===============================
-if ($minat == '1'){
-  $temp3 = $minat;
-  $bahasa3 = $sb;
-  $kemanusiaan3 = $sk;
-  $mapala3 = $sm;
-  $persma3 = $sp;
-  $pramuka3 = $spr;
-  $senior3 = $ss;
-  $wirausaha3 = $sw;
-}
-
-if ($minat == '2'){
-  $temp3 = $minat;
-  $bahasa3 = $ob;
-  $kemanusiaan3 = $ok;
-  $mapala3 = $om;
-  $persma3 = $op;
-  $pramuka3 = $opr;
-  $senior3 = $os;
-  $wirausaha3 = $ow;
-}
-
-if ($minat == '3'){
-  $temp3 = $minat;
-  $bahasa3 = $pab;
-  $kemanusiaan3 = $pak;
-  $mapala3 = $pam;
-  $persma3 = $pap;
-  $pramuka3 = $papr;
-  $senior3 = $pas;
-  $wirausaha3 = $paw;
-}
-
-if ($minat == '4'){
-  $temp3 = $minat;
-  $bahasa3 = $bdb;
-  $kemanusiaan3 = $bdk;
-  $mapala3 = $bdm;
-  $persma3 = $bdp;
-  $pramuka3 = $bdpr;
-  $senior3 = $bds;
-  $wirausaha3 = $bdw;
-}
-
-if ($minat == '5'){
-  $temp3 = $minat;
-  $bahasa3 = $jb;
-  $kemanusiaan3 = $jk;
-  $mapala3 = $jm;
-  $persma3 = $jp;
-  $pramuka3 = $jpr;
-  $senior3 = $js;
-  $wirausaha3 = $jw;
-}
-
-if ($minat == '6'){
-  $temp3 = $minat;
-  $bahasa3 = $sob;
-  $kemanusiaan3 = $sok;
-  $mapala3 = $som;
-  $persma3 = $sop;
-  $pramuka3 = $sopr;
-  $senior3 = $sos;
-  $wirausaha3 = $sow;
-}
-
-if ($minat == '7'){
-  $temp3 = $minat;
-  $bahasa3 = $wb;
-  $kemanusiaan3 = $wk;
-  $mapala3 = $wm;
-  $persma3 = $wp;
-  $pramuka3 = $wpr;
-  $senior3 = $ws;
-  $wirausaha3 = $ww;
-}
-
-if ($minat == '8'){
+if ($minat == 'Seni'){
   $temp3 = $minat;
   $bahasa3 = $bb;
   $kemanusiaan3 = $bk;
@@ -3677,7 +3620,73 @@ if ($minat == '8'){
   $wirausaha3 = $bw;
 }
 
-if ($minat == '9'){
+if ($minat == 'Olahraga'){
+  $temp3 = $minat;
+  $bahasa3 = $bdb;
+  $kemanusiaan3 = $bdk;
+  $mapala3 = $bdm;
+  $persma3 = $bdp;
+  $pramuka3 = $bdpr;
+  $senior3 = $bds;
+  $wirausaha3 = $bdw;
+}
+
+if ($minat == 'Pecinta Alam'){
+  $temp3 = $minat;
+  $bahasa3 = $jb;
+  $kemanusiaan3 = $jk;
+  $mapala3 = $jm;
+  $persma3 = $jp;
+  $pramuka3 = $jpr;
+  $senior3 = $js;
+  $wirausaha3 = $jw;
+}
+
+if ($minat == 'Bela Diri'){
+  $temp3 = $minat;
+  $bahasa3 = $kmb;
+  $kemanusiaan3 = $kmk;
+  $mapala3 = $kmm;
+  $persma3 = $kmp;
+  $pramuka3 = $kmpr;
+  $senior3 = $kms;
+  $wirausaha3 = $kmw;
+}
+
+if ($minat == 'Jurnalistik'){
+  $temp3 = $minat;
+  $bahasa3 = $ksb;
+  $kemanusiaan3 = $ksk;
+  $mapala3 = $ksm;
+  $persma3 = $ksp;
+  $pramuka3 = $kspr;
+  $senior3 = $kss;
+  $wirausaha3 = $ksw;
+}
+
+if ($minat == 'Kesehatan'){
+  $temp3 = $minat;
+  $bahasa3 = $ob;
+  $kemanusiaan3 = $ok;
+  $mapala3 = $om;
+  $persma3 = $op;
+  $pramuka3 = $opr;
+  $senior3 = $os;
+  $wirausaha3 = $ow;
+}
+
+if ($minat == 'Wirausaha'){
+  $temp3 = $minat;
+  $bahasa3 = $pab;
+  $kemanusiaan3 = $pak;
+  $mapala3 = $pam;
+  $persma3 = $pap;
+  $pramuka3 = $papr;
+  $senior3 = $pas;
+  $wirausaha3 = $paw;
+}
+
+if ($minat == 'Bahasa'){
   $temp3 = $minat;
   $bahasa3 = $pb;
   $kemanusiaan3 = $pk;
@@ -3688,19 +3697,30 @@ if ($minat == '9'){
   $wirausaha3 = $pw;
 }
 
-  #===============================
-if ($bakat == 'Seni'){
-  $temp4 = $bakat;
-  $bahasa4 = $s2b;
-  $kemanusiaan4 = $s2k;
-  $mapala4 = $s2m;
-  $persma4 = $s2p;
-  $pramuka4 = $s2pr;
-  $senior4 = $s2s;
-  $wirausaha4 = $s2w;
+if ($minat == 'Kemanusiaan'){
+  $temp3 = $minat;
+  $bahasa3 = $sb;
+  $kemanusiaan3 = $sk;
+  $mapala3 = $sm;
+  $persma3 = $sp;
+  $pramuka3 = $spr;
+  $senior3 = $ss;
+  $wirausaha3 = $sw;
 }
 
-if ($bakat == 'Bahasa'){
+if ($minat == 'Pramuka'){
+  $temp3 = $minat;
+  $bahasa3 = $wb;
+  $kemanusiaan3 = $wk;
+  $mapala3 = $wm;
+  $persma3 = $wp;
+  $pramuka3 = $wpr;
+  $senior3 = $ws;
+  $wirausaha3 = $ww;
+}
+
+  #===============================
+if ($bakat == 'Seni'){
   $temp4 = $bakat;
   $bahasa4 = $b2b;
   $kemanusiaan4 = $b2k;
@@ -3709,6 +3729,17 @@ if ($bakat == 'Bahasa'){
   $pramuka4 = $b2pr;
   $senior4 = $b2s;
   $wirausaha4 = $b2w;
+}
+
+if ($bakat == 'Bahasa'){
+  $temp4 = $bakat;
+  $bahasa4 = $lb;
+  $kemanusiaan4 = $lk;
+  $mapala4 = $lm;
+  $persma4 = $lp;
+  $pramuka4 = $lpr;
+  $senior4 = $ls;
+  $wirausaha4 = $lw;
 }
 
 if ($bakat == 'Olahraga'){
@@ -3724,17 +3755,16 @@ if ($bakat == 'Olahraga'){
 
 if ($bakat == 'Lainnya'){
   $temp4 = $bakat;
-  $bahasa4 = $lb;
-  $kemanusiaan4 = $lk;
-  $mapala4 = $lm;
-  $persma4 = $lp;
-  $pramuka4 = $lpr;
-  $senior4 = $ls;
-  $wirausaha4 = $lw;
+  $bahasa4 = $s2b;
+  $kemanusiaan4 = $s2k;
+  $mapala4 = $s2m;
+  $persma4 = $s2p;
+  $pramuka4 = $s2pr;
+  $senior4 = $s2s;
+  $wirausaha4 = $s2w;
 }
 
   #===============================
-
 if ($hobi == 'Menari'){
   $temp5 = $hobi;
   $bahasa5 = $mnb;
@@ -3773,10 +3803,21 @@ if ($hobi == 'Menggambar'){
   $bahasa5 = $mgbb;
   $kemanusiaan5 = $mgbk;
   $mapala5 = $mgbm;
-  $persma5 = $mgbm;
+  $persma5 = $mgbp;
   $pramuka5 = $mgbpr;
   $senior5 = $mgbs;
   $wirausaha5 = $mgbw;
+}
+
+if ($hobi == 'Memasak'){
+  $temp5 = $hobi;
+  $bahasa5 = $mskb;
+  $kemanusiaan5 = $mskk;
+  $mapala5 = $mskm;
+  $persma5 = $mskp;
+  $pramuka5 = $mskpr;
+  $senior5 = $msks;
+  $wirausaha5 = $mskw;
 }
 
 if ($hobi == 'Fotografi'){
@@ -3933,7 +3974,7 @@ if ($hobi == 'Jalan-Jalan'){
   $wirausaha5 = $jjw;
 }
 
-if ($hobi == 'Belajar Bahasa Asing Baru'){
+if ($hobi == 'Belajar bahasa asing baru'){
   $temp5 = $hobi;
   $bahasa5 = $bbabb;
   $kemanusiaan5 = $bbabk;
@@ -3988,7 +4029,7 @@ if ($hobi == 'Travelling'){
   $wirausaha5 = $trw;
 }
 
-if ($hobi == 'Desain Grafis'){
+if ($hobi == 'Desain grafis'){
   $temp5 = $hobi;
   $bahasa5 = $dgb;
   $kemanusiaan5 = $dgk;
@@ -4005,7 +4046,7 @@ $total_mapala1 = $mapala1 * $mapala2 * $mapala3 * $mapala4 * $mapala5 * $prob_ma
 $total_persma1 = $persma1 * $persma2 * $persma3 * $persma4 * $persma5 * $prob_persma;
 $total_pramuka1 = $pramuka1 * $pramuka2 * $pramuka3 * $pramuka4 * $pramuka5 * $prob_pramuka;
 $total_senior1 = $senior1 * $senior2 * $senior3 * $senior4 * $senior5 * $prob_senior;
-$total_wirausaha1 = $wirausaha1 * $wirausaha2 * $wirausaha3 * $wirausaha4 * $wirausaha5 * $prob_wirausaha; 
+$total_wirausaha1 = $wirausaha1 * $wirausaha2 * $wirausaha3 * $wirausaha4 * $wirausaha5 * $prob_wirausaha;
 
 $total_bahasa = floatval(substr(strval($total_bahasa1), 0, 15));
 $total_kemanusiaan = floatval(substr(strval($total_kemanusiaan1), 0, 15));
@@ -4015,91 +4056,62 @@ $total_pramuka = floatval(substr(strval($total_pramuka1), 0, 15));
 $total_senior = floatval(substr(strval($total_senior1), 0, 15));
 $total_wirausaha = floatval(substr(strval($total_wirausaha1), 0, 15));
 
-$result=array("Bahasa"=>$total_bahasa,"Kemanusiaan (ksr, humaniora)"=>$total_kemanusiaan,"Pecinta Alam (MAPALA)"=>$total_mapala,"Persma"=>$total_persma,"Pramuka"=>$total_pramuka,"SENIOR (senior, bola, karate, taekwondo)"=>$total_senior,"Wirausaha"=>$total_wirausaha);
-arsort($result);
-  
-$ukm=1;
-foreach($result as $x=>$x_value)
-   {
-   echo "<b>Rekomendasi ke-".$ukm."</b> : " . $x;
-   echo "<br>";
-   // echo "Nilai Persentase = " . $x_value;
-   // echo "<br>";
-   $ukm++;
-   }
+
+echo "Hasil Probabilitas UKM ( P[ Bahasa ] ) : <br>
+$bahasa1 * $bahasa2 * $bahasa3 * $bahasa4 * $bahasa5 * $prob_bahasa = $total_bahasa".'<br/>'.'<br/>';
+
+echo "Hasil Probabilitas UKM ( P[ Kemanusiaan (ksr, humaniora) ] ) : <br>
+$kemanusiaan1 * $kemanusiaan2 * $kemanusiaan3 * $kemanusiaan4 * $kemanusiaan5 * $prob_kemanusiaan = $total_kemanusiaan".'<br/>'.'<br/>';
+
+echo "Hasil Probabilitas UKM ( P[ Pecinta Alam (MAPALA) ] ) : <br> 
+$mapala1 * $mapala2 * $mapala3 * $mapala4 * $mapala5 * $prob_mapala = $total_mapala".'<br/>'.'<br/>';
+
+echo "Hasil Probabilitas UKM ( P[ Persma ] ) : <br> 
+$persma1 * $persma2 * $persma3 * $persma4 * $persma5 * $prob_persma = $total_persma".'<br/>'.'<br/>';
+
+echo "Hasil Probabilitas UKM ( P[ Pramuka ] ) : <br> 
+$pramuka1 * $pramuka1 * $pramuka2 * $pramuka3 * $pramuka4 * $pramuka5 * $prob_pramuka = $total_pramuka".'<br/>'.'<br/>';
+
+echo "Hasil Probabilitas UKM ( P[ SENIOR (senior, bola, karate, taekwondo) ] ) : <br> 
+$senior1 * $senior2 * $senior3 * $senior4 * $senior5 * $prob_senior = $total_senior".'<br/>'.'<br/>';
+
+echo "Hasil Probabilitas UKM ( P[ Wirausaha ] ) : <br> 
+$wirausaha1 * $wirausaha2 * $wirausaha3 * $wirausaha4 * $wirausaha5 * $prob_wirausaha = $total_wirausaha".'<br/>'.'<br/>';
 
 if ($total_bahasa > $total_persma && $total_bahasa > $total_wirausaha && $total_bahasa > $total_mapala && $total_bahasa > $total_senior && $total_bahasa > $total_kemanusiaan && $total_bahasa > $total_pramuka) {
-  $sql="INSERT INTO tb_hasil_spk (id_jurusan, prodi, id_minat, bakat, hobi, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','Bahasa','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
+  $sql="INSERT INTO tb_data_testing (jurusan, prodi, minat, bakat, hobi, label, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','$label','Bahasa','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
   $query = $db_object->db_query($sql);
-echo "Jadi UKM yang paling direkomendasikan untuk anda adalah '.<b><u>Bahasa.'";
+echo "Jadi hasil klasifikasi UKM adalah '.<b><u>Bahasa.'";
 }
 else if ($total_kemanusiaan > $total_persma && $total_kemanusiaan > $total_wirausaha && $total_kemanusiaan > $total_mapala && $total_kemanusiaan > $total_senior && $total_kemanusiaan > $total_bahasa && $total_kemanusiaan > $total_pramuka) {
-  $sql="INSERT INTO tb_hasil_spk (id_jurusan, prodi, id_minat, bakat, hobi, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','Kemanusiaan (ksr, humaniora)','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
+  $sql="INSERT INTO tb_data_testing (jurusan, prodi, minat, bakat, hobi, label, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','$label','Kemanusiaan (ksr, humaniora)','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
   $query = $db_object->db_query($sql);
-echo "Jadi UKM yang paling direkomendasikan untuk anda adalah '.<b><u>Kemanusiaan (ksr, humaniora).'";
+echo "Jadi hasil klasifikasi UKM adalah '.<b><u>Kemanusiaan (ksr, humaniora).'";
 }
 else if ($total_mapala > $total_persma && $total_mapala > $total_wirausaha && $total_mapala > $total_kemanusiaan && $total_mapala > $total_senior && $total_mapala > $total_bahasa && $total_mapala > $total_pramuka) {
-  $sql="INSERT INTO tb_hasil_spk (id_jurusan, prodi, id_minat, bakat, hobi, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','Pecinta Alam (MAPALA)','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
+  $sql="INSERT INTO tb_data_testing (jurusan, prodi, minat, bakat, hobi, label, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','$label','Pecinta Alam (MAPALA)','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
   $query = $db_object->db_query($sql);
-echo "Jadi UKM yang paling direkomendasikan untuk anda adalah '.<b><u>Pecinta Alam (MAPALA).'";
+echo "Jadi hasil klasifikasi UKM adalah '.<b><u>Pecinta Alam (MAPALA).'";
 }
 else if ($total_persma > $total_mapala && $total_persma > $total_wirausaha && $total_persma > $total_kemanusiaan && $total_persma > $total_senior && $total_persma > $total_bahasa && $total_persma > $total_pramuka) {
-  $sql="INSERT INTO tb_hasil_spk (id_jurusan, prodi, id_minat, bakat, hobi, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','Persma','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
+  $sql="INSERT INTO tb_data_testing (jurusan, prodi, minat, bakat, hobi, label, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','$label','Persma','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
   $query = $db_object->db_query($sql);
-echo "Jadi UKM yang paling direkomendasikan untuk anda adalah '.<b><u>Persma.'";
+echo "Jadi hasil klasifikasi UKM adalah '.<b><u>Persma.'";
 }
 else if ($total_pramuka > $total_mapala && $total_pramuka > $total_wirausaha && $total_pramuka > $total_kemanusiaan && $total_pramuka > $total_senior && $total_pramuka > $total_bahasa && $total_pramuka > $total_persma) {
-  $sql="INSERT INTO tb_hasil_spk (id_jurusan, prodi, id_minat, bakat, hobi, label, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','Pramuka','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
+  $sql="INSERT INTO tb_data_testing (jurusan, prodi, minat, bakat, hobi, label, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','$label','Pramuka','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
   $query = $db_object->db_query($sql);
-echo "Jadi UKM yang paling direkomendasikan untuk anda adalah '.<b><u>Pramuka.'";
+echo "Jadi hasil klasifikasi UKM adalah '.<b><u>Pramuka.'";
 }
 elseif ($total_senior > $total_mapala && $total_senior > $total_pramuka && $total_senior > $total_kemanusiaan && $total_senior > $total_wirausaha && $total_senior > $total_bahasa && $total_senior > $total_persma) {
-  $sql="INSERT INTO tb_hasil_spk (id_jurusan, prodi, id_minat, bakat, hobi, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','SENIOR (senior, bola, karate, taekwondo)','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
+  $sql="INSERT INTO tb_data_testing (jurusan, prodi, minat, bakat, hobi, label, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','$label','SENIOR (senior, bola, karate, taekwondo)','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
   $query = $db_object->db_query($sql);
-echo "Jadi UKM yang paling direkomendasikan untuk anda adalah '.<b><u>SENIOR (senior, bola, karate, taekwondo).'";
+echo "Jadi hasil klasifikasi UKM adalah '.<b><u>SENIOR (senior, bola, karate, taekwondo).'";
 }
 else if ($total_wirausaha > $total_mapala && $total_wirausaha > $total_pramuka && $total_wirausaha > $total_kemanusiaan && $total_wirausaha > $total_senior && $total_wirausaha > $total_bahasa && $total_wirausaha > $total_persma) {
-  $sql="INSERT INTO tb_hasil_spk (id_jurusan, prodi, id_minat, bakat, hobi, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','Wirausaha','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
+  $sql="INSERT INTO tb_data_testing (jurusan, prodi, minat, bakat, hobi, label, kelas_hasil, nilai_wirausaha, nilai_kemanusiaan, nilai_senior, nilai_mapala, nilai_persma, nilai_bahasa, nilai_pramuka) VALUES ('$jurusan','$prodi','$minat','$bakat','$hobi','$label','Wirausaha','$total_wirausaha','$total_kemanusiaan','$total_senior','$total_mapala','$total_persma','$total_bahasa','$total_pramuka')";
   $query = $db_object->db_query($sql);
-echo "Jadi UKM yang paling direkomendasikan untuk anda adalah '.<b><u>Wirausaha.'";
+echo "Jadi hasil klasifikasi UKM adalah '.<b><u>Wirausaha.'";
 }
  }
 ?>
-
-        <!--akhir colomn kedua-->
-
-<script language='javascript'>
-
-  function pilihProdi(){
-    var jurusan = $("#jurusan").val();
-    console.log(jurusan);
-    $.ajax({
-      type: 'POST',
-        url: '?page=get&actions=prodi',
-        data: {jurusan: jurusan},
-        cache: false,
-        success: function(msg){
-          $("#prd").html(msg);
-        }
-    });
-  }
-
-</script>
-
-<script language='javascript'>
-
-  function pilihHobi(){
-    var minat = $("#minat").val();
-    console.log(minat);
-    $.ajax({
-      type: 'POST',
-        url: '?page=get&actions=hobi',
-        data: {minat: minat},
-        cache: false,
-        success: function(msg){
-          $("#hobi").html(msg);
-        }
-    });
-  }
-
-</script>

@@ -22,10 +22,8 @@
                         <li><a href="?page=testing&actions=tampil">Data Testing</a></li>
                     </ul>
                 </li>
-               
-                <li><a href="?page=hasil_spk&actions=tampil">Hasil SPK</a></li>
+                <li><a href="?page=hasil_spk&actions=tampil">Data Hasil SPK</a></li>
                 <li><a href="?page=data_ukm&actions=tampil">Data UKM</a></li>
-                <li><a href="?page=data_mhs&actions=tampil">Data Mahasiswa</a></li>
                 
                     <?php if (isset($_SESSION['username'])) { ?>
                     <li><a href="logout.php">Logout</a></li>

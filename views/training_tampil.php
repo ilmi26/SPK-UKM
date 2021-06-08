@@ -3,9 +3,9 @@ if(!isset($_SESSION ['id_spk'])) {
     echo "<script> window.location.assign('../index.php'); </script>";
 }
 
-require 'db/database.php';
-require 'fungsi.php';
 require 'import/excel_reader2.php';
+require 'db/database.php';
+
 ?>
 
 <div class="container">
@@ -27,7 +27,6 @@ require 'import/excel_reader2.php';
 
             <?php
 
-        
         $db_object = new database();
 
         if (isset($_POST['submit'])) {
@@ -36,7 +35,7 @@ require 'import/excel_reader2.php';
             $target = basename($_FILES['filetraining']['name']) ;
             move_uploaded_file($_FILES['filetraining']['tmp_name'], $target);
 
-            // beri permisi agar file xls dapat di baca
+            // beri permisi agar file xls dapat di bgaca
             chmod($_FILES['filetraining']['name'],0777);
             // mengambil isi file xls
             $data = new Spreadsheet_Excel_Reader($_FILES['filetraining']['name'],false);
@@ -45,15 +44,13 @@ require 'import/excel_reader2.php';
             for ($i=2; $i<=$baris; $i++) {
 //               
                 if(!empty($data->val($i, 2))){
-                    $nama     = $data->val($i, 1);
-                    $nim   = $data->val($i, 2);
-                    $jurusan  = $data->val($i, 3);
-                    $prodi  = $data->val($i, 4);
-                    $minat  = $data->val($i, 5);
-                    $bakat  = $data->val($i, 6);
-                    $hobi  = $data->val($i, 7);
-                    $label  = $data->val($i, 8);
-                    $sql1="INSERT INTO tb_data_training VALUES ('','$nama','$nim','$jurusan','$prodi','$minat','$bakat','$hobi','$label')";
+                    $jurusan  = $data->val($i, 1);
+                    $prodi  = $data->val($i, 2);
+                    $minat  = $data->val($i, 3);
+                    $bakat  = $data->val($i, 4);
+                    $hobi  = $data->val($i, 5);
+                    $label  = $data->val($i, 6);
+                    $sql1="INSERT INTO tb_data_training VALUES ('','$jurusan','$prodi','$minat','$bakat','$hobi','$label')";
     $query1 = $db_object->db_query($sql1);
      }
             }
@@ -63,23 +60,24 @@ require 'import/excel_reader2.php';
         echo "<script>alert('Simpan Data Gagal');<script>";
     }
     }
+    
         ?>
 
        <div class="col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><span class="fa fa-user-plus"></span> Data Training</h3>
+                    <h3 class="panel-title"><span class="fa fa-file"></span> Data Training</h3>
                 </div>
                 <div class="panel-body">
                     <table id="dataTable" class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>No.</th><th>Nama Lengkap</th><th>NIM</th><th>Jurusan</th><th>Prodi</th><th>Minat</th><th>Bakat</th><th>Hobi</th><th>Label Kelas</th><th>ACTION</th>
+                                <th>No.</th><th>Jurusan</th><th>Prodi</th><th>Minat</th><th>Bakat</th><th>Hobi</th><th>Label Kelas</th><th>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                           <?php
+                            <?php
                             $sql2 = "SELECT * FROM tb_data_training";
                             $query2 = $db_object->db_query($sql2);
 
@@ -87,8 +85,6 @@ require 'import/excel_reader2.php';
                             while ($row = $db_object->db_fetch_array($query2)) {
                             echo "<tr>";
                             echo "<td>" . $no . "</td>";
-                            echo "<td>" . $row['nama'] . "</td>";
-                            echo "<td>" . $row['nim'] . "</td>";
                             echo "<td>" . $row['jurusan'] . "</td>";
                             echo "<td>" . $row['prodi'] . "</td>";
                             echo "<td>" . $row['minat'] . "</td>";
@@ -109,4 +105,3 @@ require 'import/excel_reader2.php';
         </div>
     </div>
 </div>
-

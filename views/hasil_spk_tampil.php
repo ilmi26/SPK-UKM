@@ -8,49 +8,43 @@ require 'db/database.php';
 
 <div class="container">
     <div class="row">
-         <div class="col-xs-12">
+            <div class="col-md-12">
+                <!--UPLOAD EXCEL FORM-->
+
+
+        <div class="col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><span class="fa fa-user-plus"></span> Hasil SPK</h3>
+                    <h3 class="panel-title"><span class="fa fa-user-plus"></span> Data Hasil SPK</h3>
                 </div>
                 <div class="panel-body">
-                    <table id="dtskripsi" class="table table-bordered table-striped table-hover">
+                    <table id="dataTable" class="table table-bordered table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>No.</th><th>Nama Lengkap</th><th>NIM</th><th>Jurusan</th><th>Prodi</th><th>Minat</th><th>Bakat</th><th>Hobi</th><th>Kelas Hasil</th><th>ACTION</th>
+                                <th>No.</th><th>Jurusan</th><th>Prodi</th><th>Minat</th><th>Bakat</th><th>Hobi</th><th>Hasil Rekomendasi UKM</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!--ambil data dari database, dan tampilkan kedalam tabel-->
                             <?php
                             $db_object = new database();
-                            //buat sql untuk tampilan data, gunakan kata kunci select
-                            $sql = "SELECT * FROM tb_hasil_spk";
-                            $query = $db_object->db_query($sql);
+                            $sql2 = "SELECT * FROM tb_hasil_spk";
+                            $query2 = $db_object->db_query($sql2);
 
-                            $nomor = 0;
-                            while ($data = $db_object->db_fetch_array($query)) {
-                                $nomor++; //Penambahan satu untuk nilai var nomor
-                                ?>
-                                <tr>
-                                    <td><?= $nomor ?></td>
-                                    <td><?= $data['nama'] ?></td>
-                                    <td><?= $data['nim'] ?></td>
-                                    <td><?= $data['jurusan'] ?></td>
-                                    <td><?= $data['prodi'] ?></td>
-                                    <td><?= $data['minat'] ?></td>
-                                    <td><?= $data['bakat'] ?></td>
-                                    <td><?= $data['hobi'] ?></td>
-                                    <td><?= $data['kelas_hasil'] ?></td>
-                                    <td>
-                                    
-                                        <a href="?page=arsip&actions=delete&id=<?= $data['id'] ?>" class="btn btn-danger btn-xs">
-                                            <span class="fa fa-remove"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <!--Tutup Perulangan data-->
-                            <?php } ?>
+                            $no = 1;
+                            while ($row = $db_object->db_fetch_array($query2)) {
+                            echo "<tr>";
+                            echo "<td>" . $no . "</td>";
+                            echo "<td>" . $row['id_jurusan'] . "</td>";
+                            echo "<td>" . $row['prodi'] . "</td>";
+                            echo "<td>" . $row['id_minat'] . "</td>";
+                            echo "<td>" . $row['bakat'] . "</td>";
+                            echo "<td>" . $row['hobi'] . "</td>";
+                            echo "<td>" . $row['kelas_hasil'] . "</td>";
+                            echo "</tr>";
+                            $no++;
+                              }
+                        ?>
                         </tbody>
                         
                     </table>
